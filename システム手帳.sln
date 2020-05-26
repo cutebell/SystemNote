@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBook", "NoteBook\NoteBook.csproj", "{AC39F733-B45C-4CC0-A8E6-FDBFCF21AB0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordMaker", "PasswordMaker\PasswordMaker.csproj", "{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AC39F733-B45C-4CC0-A8E6-FDBFCF21AB0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC39F733-B45C-4CC0-A8E6-FDBFCF21AB0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC39F733-B45C-4CC0-A8E6-FDBFCF21AB0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

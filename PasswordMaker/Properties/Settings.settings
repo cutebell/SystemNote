@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PasswordMaker.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Uppercase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ABCDEFGHIJKLMNOPQRSTUVWXYZ</Value>
+    </Setting>
+    <Setting Name="Lowercase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">abcdefghijklmnopqrstuvwxyz</Value>
+    </Setting>
+    <Setting Name="Numbers" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0123456789</Value>
+    </Setting>
+    <Setting Name="Symbol" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">!"#$%&amp;'()=~|`{}*+&lt;&gt;?_\/.,]:;[@\^-</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

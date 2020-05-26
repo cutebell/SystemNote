@@ -260,12 +260,12 @@ namespace NoteBook
 
         private void パスワードメーカーToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          //  パスワードメーカー.Form1 passwordMaker = new パスワードメーカー.Form1();
-          //  if(DialogResult.OK == passwordMaker.ShowDialog(this))
-          //  {
-          //      this.richTextBox1.AppendText(Environment.NewLine);
-          //      this.richTextBox1.AppendText(passwordMaker.password);
-          //  }
+            PasswordMaker.MainForm mainForm = new PasswordMaker.MainForm();
+            if(DialogResult.OK == mainForm.ShowDialog(this))
+            {
+                this.richTextBox1.AppendText(Environment.NewLine);
+                this.richTextBox1.AppendText(mainForm.Password);
+            }
 
         }
     }
