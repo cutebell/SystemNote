@@ -86,15 +86,18 @@ namespace NoteBook
             
         }
 
-        private void CommitXMLData()
+        private void CommitXMLData(bool toGoogleDrive = false)
         {
             String tmpFileName = this.googleDriveAccessService.GetFile(fileID);
             try
             {
                 this.XML.saveXML(tmpFileName);
-                using(FileStream fileStream = new FileStream(tmpFileName, FileMode.Open))
+                if (toGoogleDrive)
                 {
-                    this.googleDriveAccessService.Update(this.fileID, fileStream, Settings.Default.noteXMLPath, "application/xml");
+                    using (FileStream fileStream = new FileStream(tmpFileName, FileMode.Open))
+                    {
+                        this.googleDriveAccessService.Update(this.fileID, fileStream, Settings.Default.noteXMLPath, "application/xml");
+                    }
                 }
 
             }
@@ -299,6 +302,11 @@ namespace NoteBook
                 this.richTextBox1.AppendText(mainForm.Password);
             }
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.CommitXMLData(true);
         }
     }
 }
