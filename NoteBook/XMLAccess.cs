@@ -115,9 +115,9 @@ namespace NoteBook
             return false;
         }
 
-        internal bool saveXML()
+        internal bool saveXML(String filePath)
         {
-            XML.Save(Config.Default.noteXMLPath);
+            XML.Save(filePath);
             return true;
         }
 

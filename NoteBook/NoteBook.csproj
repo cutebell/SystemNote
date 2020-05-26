@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -79,6 +79,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,6 +102,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GoogleDriveAccess\GoogleDriveAccess.csproj">
+      <Project>{12c53985-9285-4e2f-8ead-0c99581a35f2}</Project>
+      <Name>GoogleDriveAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PasswordMaker\PasswordMaker.csproj">
       <Project>{3a4ec5ff-a2be-4004-92e1-2256ddd72e56}</Project>
       <Name>PasswordMaker</Name>

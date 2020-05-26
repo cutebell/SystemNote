@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NoteBook.Properties {
+namespace GoogleDriveAccess.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,22 +25,10 @@ namespace NoteBook.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SystemNote.xml")]
-        public string noteXMLPath {
+        [global::System.Configuration.DefaultSettingValueAttribute("token.json")]
+        public string CredPath {
             get {
-                return ((string)(this["noteXMLPath"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MS UI Gothic, 9pt")]
-        public global::System.Drawing.Font font {
-            get {
-                return ((global::System.Drawing.Font)(this["font"]));
-            }
-            set {
-                this["font"] = value;
+                return ((string)(this["CredPath"]));
             }
         }
     }

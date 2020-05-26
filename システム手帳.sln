@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteBook", "NoteBook\NoteBo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordMaker", "PasswordMaker\PasswordMaker.csproj", "{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleDriveAccess", "GoogleDriveAccess\GoogleDriveAccess.csproj", "{12C53985-9285-4E2F-8EAD-0C99581A35F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A4EC5FF-A2BE-4004-92E1-2256DDD72E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C53985-9285-4E2F-8EAD-0C99581A35F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C53985-9285-4E2F-8EAD-0C99581A35F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C53985-9285-4E2F-8EAD-0C99581A35F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C53985-9285-4E2F-8EAD-0C99581A35F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

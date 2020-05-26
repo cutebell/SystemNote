@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NoteBook.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="noteXMLPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">F:\note.xml</Value>
+    <Setting Name="noteXMLPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SystemNote.xml</Value>
     </Setting>
     <Setting Name="font" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">MS UI Gothic, 9pt</Value>

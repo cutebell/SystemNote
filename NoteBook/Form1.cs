@@ -1,4 +1,5 @@
-﻿using NoteBook.Properties;
+﻿using GoogleDriveAccess;
+using NoteBook.Properties;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -18,12 +19,17 @@ namespace NoteBook
 
         private string attributeName;
 
+        private GoogleDriveAccessService googleDriveAccessService;
+
+        private String fileID;
+
         /// <summary>
         /// 
         /// </summary>
         public Form1()
         {
             InitializeComponent();
+            this.googleDriveAccessService = new GoogleDriveAccessService("Drive API .NET SystemNote");
         }
 
         private void setFont()
@@ -38,43 +44,67 @@ namespace NoteBook
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (false == File.Exists(Config.Default.noteXMLPath))
+            String tmpFileName = String.Empty;
+            try
             {
-                MessageBox.Show(this, "データを格納するxmlのパスを指定します", "初期設定", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                if(DialogResult.OK.Equals(this.saveFileDialog1.ShowDialog(this)))
+                this.fileID = this.googleDriveAccessService.GetFileID(Config.Default.noteXMLPath);
+                if (String.IsNullOrEmpty(this.fileID))
                 {
-                    Config.Default.noteXMLPath = this.saveFileDialog1.FileName;
-                    using (StreamWriter streamWriter = File.CreateText(Config.Default.noteXMLPath))
+                    using (MemoryStream memoryStream = new MemoryStream(Resources.note))
                     {
-                        streamWriter.WriteLine(Resources.note);
-                        streamWriter.Close();
+                        fileID = this.googleDriveAccessService.Create(memoryStream, Config.Default.noteXMLPath, "application/xml");
                     }
-                    Config.Default.Save();
                 }
-                else
+
+                tmpFileName = this.googleDriveAccessService.GetFile(fileID);
+
+                XML = new XMLAccess(tmpFileName);
+                if (false == XML.InitSuccessFlg)
                 {
                     Application.Exit();
                     return;
                 }
-            }
 
-            XML = new XMLAccess(Config.Default.noteXMLPath);
-            if (false == XML.InitSuccessFlg)
+                // 編集機能クラス
+                function = new Function(richTextBox1);
+                // コンテキストメニュークラス
+                _menu = new MyConTextMenu(function);
+                // 右クリックメニュー設定
+                richTextBox1.ContextMenuStrip = _menu.menu;
+                // 検索機能
+                search = new Search(listBox1_Index);
+                this.setFont();
+                SystemFunction_INIT();
+            }
+            finally
             {
-                Application.Exit();
-                return;
+                if (File.Exists(tmpFileName))
+                {
+                    File.Delete(tmpFileName);
+                }
             }
+            
+        }
 
-            // 編集機能クラス
-            function = new Function(richTextBox1);
-            // コンテキストメニュークラス
-            _menu = new MyConTextMenu(function);
-            // 右クリックメニュー設定
-            richTextBox1.ContextMenuStrip = _menu.menu;
-            // 検索機能
-            search = new Search(listBox1_Index);
-            this.setFont();
-            SystemFunction_INIT();
+        private void CommitXMLData()
+        {
+            String tmpFileName = this.googleDriveAccessService.GetFile(fileID);
+            try
+            {
+                this.XML.saveXML(tmpFileName);
+                using(FileStream fileStream = new FileStream(tmpFileName, FileMode.Open))
+                {
+                    this.googleDriveAccessService.Update(this.fileID, fileStream, Settings.Default.noteXMLPath, "application/xml");
+                }
+
+            }
+            finally
+            {
+                if (File.Exists(tmpFileName))
+                {
+                    File.Delete(tmpFileName);
+                }
+            }
         }
 
         /// <summary>
@@ -137,19 +167,20 @@ namespace NoteBook
         /// </summary>
         private void function_Save()
         {
-            if(String.IsNullOrEmpty(this.attributeName))
+            if (String.IsNullOrEmpty(this.attributeName))
             {
                 MessageBox.Show("編集中のタイトルがありません。");
                 return;
             }
             XML.deleteXML(this.attributeName);
-            XML.saveXML();
+
+            this.CommitXMLData();
             foreach (String val in richTextBox1.Lines)
             {
                 XML.appendXML(this.attributeName, val);
             }
 
-            XML.saveXML();
+            this.CommitXMLData();
             SystemFunction_INIT();
         }
 
@@ -163,7 +194,8 @@ namespace NoteBook
                 return;
             }
             XML.deleteXML(listBox1_Index.SelectedItem.ToString());
-            XML.saveXML();
+            this.CommitXMLData();
+
             richTextBox1.Text = String.Empty;
             SystemFunction_INIT();
         }
@@ -230,7 +262,7 @@ namespace NoteBook
                         XML.appendXML(newTitle.newTitle, val);
                     }
 
-                    XML.saveXML();
+                    this.CommitXMLData();
                     SystemFunction_INIT();
                     this.listBox1_Index.SelectedItem = newTitle.newTitle;
                 }

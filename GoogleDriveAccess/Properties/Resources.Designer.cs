@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NoteBook.Properties {
+namespace GoogleDriveAccess.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace NoteBook.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NoteBook.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GoogleDriveAccess.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace NoteBook.Properties {
         /// <summary>
         ///   型 System.Byte[] のローカライズされたリソースを検索します。
         /// </summary>
-        internal static byte[] note {
+        internal static byte[] credentials {
             get {
-                object obj = ResourceManager.GetObject("note", resourceCulture);
+                object obj = ResourceManager.GetObject("credentials", resourceCulture);
                 return ((byte[])(obj));
             }
         }
